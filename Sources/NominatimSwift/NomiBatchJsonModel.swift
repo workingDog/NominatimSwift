@@ -27,7 +27,7 @@ public final class NomiBatchJsonModel: NomiBaseJson {
         return await withTaskGroup(of: NominatimPlace.self) { group -> Void in
             for location in locations {
                 group.addTask {
-                    await self.reverse(lat: location.lat, lon: location.lon, options: options)
+                    await self.baseReverse(lat: location.lat, lon: location.lon, options: options)
                 }
             }
             for await response in group {
@@ -41,7 +41,7 @@ public final class NomiBatchJsonModel: NomiBaseJson {
         return await withTaskGroup(of: [NominatimPlace].self) { group -> Void in
             for address in addresses {
                 group.addTask {
-                    await self.search(address: address, options: options)
+                    await self.baseSearch(address: address, options: options)
                 }
             }
             for await response in group {
@@ -55,7 +55,7 @@ public final class NomiBatchJsonModel: NomiBaseJson {
         return await withTaskGroup(of: [NominatimPlace].self) { group -> Void in
             for osmid in osmids {
                 group.addTask {
-                    await self.lookup(osmids: osmid, options: options)
+                    await self.baseLookup(osmids: osmid, options: options)
                 }
             }
             for await response in group {

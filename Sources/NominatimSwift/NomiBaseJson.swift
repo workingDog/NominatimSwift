@@ -25,7 +25,7 @@ public class NomiBaseJson {
     }
     
     /// get the reverse geocoding for the given location with the given options
-    public func reverse(lat: Double, lon: Double, options: NomiOptions) async -> NominatimPlace {
+    public func baseReverse(lat: Double, lon: Double, options: NomiOptions) async -> NominatimPlace {
         do {
             let data = try await client.fetchDataAsync(lat: lat, lon: lon, options: options)
             let response: NominatimPlace = try JSONDecoder().decode(NominatimPlace.self, from: data)
@@ -38,7 +38,7 @@ public class NomiBaseJson {
     }
     
     /// get the geocode for the given address with the given options
-    public func search(address: String, options: NomiOptions) async -> [NominatimPlace]  {
+    public func baseSearch(address: String, options: NomiOptions) async -> [NominatimPlace]  {
         do {
             let data = try await client.fetchDataAsync(address: address, options: options)
             let response: [NominatimPlace] = try JSONDecoder().decode([NominatimPlace].self, from: data)
@@ -51,7 +51,7 @@ public class NomiBaseJson {
     }
     
     /// get the geocode for the given NomiSearch parameters with the given options
-    public func search(search: NomiSearch, options: NomiOptions) async -> [NominatimPlace] {
+    public func baseSearch(search: NomiSearch, options: NomiOptions) async -> [NominatimPlace] {
         do {
             let data = try await client.fetchDataAsync(search: search, options: options)
             let response: [NominatimPlace] = try JSONDecoder().decode([NominatimPlace].self, from: data)
@@ -64,7 +64,7 @@ public class NomiBaseJson {
     }
     
     /// get the geocode for the given address with the given options
-    public func lookup(osmids: String, options: NomiOptions) async -> [NominatimPlace] {
+    public func baseLookup(osmids: String, options: NomiOptions) async -> [NominatimPlace] {
         do {
             let data = try await client.fetchDataAsync(lookup: osmids, options: options)
             let response: [NominatimPlace] = try JSONDecoder().decode([NominatimPlace].self, from: data)
