@@ -20,22 +20,22 @@ public final class NomiDataJsonModel: NomiBaseJson {
 
     /// get the reverse geocoding for the given location with the given options
     public func reverse(lat: Double, lon: Double, options: NomiOptions) async {
-        response = await self.reverse(lat: lat, lon: lon, options: options)
+        response = await super.reverse(lat: lat, lon: lon, options: options)
     }
 
     /// get the geocode for the given address with the given options
     public func search(address: String, options: NomiOptions) async {
-        searchResults = await self.search(address: address, options: options)
+        searchResults = await super.search(address: address, options: options)
     }
     
     /// get the geocode for the given NomiSearch parameters with the given options
     public func search(search: NomiSearch, options: NomiOptions) async {
-        searchResults = await self.search(search: search, options: options)
+        searchResults = await super.search(search: search, options: options)
     }
     
     /// get the geocode for the given address with the given options
     public func lookup(osmids: String, options: NomiOptions) async {
-        lookupResults = await self.lookup(osmids: osmids, options: options)
+        lookupResults = await super.lookup(osmids: osmids, options: options)
     }
  
 }
