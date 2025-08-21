@@ -27,7 +27,7 @@ let dataProvider = NomiJsonProvider()
 ...
 
 // using the async style, eg with `.task {...}`
-if let results = await dataProvider.reverse(lat: latitude, lon: longitude, options: OCOptions()) {
+if let results = await dataProvider.reverse(lat: latitude, lon: longitude, options: NomiOptions()) {
     ....
 }
 

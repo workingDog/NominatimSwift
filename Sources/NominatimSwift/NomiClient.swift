@@ -39,11 +39,10 @@ public actor NomiClient {
     public var contentType = "application/json; charset=utf-8"
     
     private var format: NomiFormats = NomiFormats.json
-    private var urlString: String = ""
-    private var openCageURL: URL?
+    private var baseurl: String = ""
 
     public init(urlString: String, format: NomiFormats) {
-        self.urlString = urlString
+        self.baseurl = urlString
         self.format = format
         self.sessionManager = {
             let configuration = URLSessionConfiguration.default
@@ -128,10 +127,8 @@ public actor NomiClient {
      */
     public func fetchDataAsync(lat: Double, lon: Double, options: NomiOptions) async throws -> Data {
         
-        let urlstr = urlString + "/reverse?format=\(format.rawValue)"
-        openCageURL = URL(string: urlstr)
-
-        guard let url = openCageURL else {
+        let urlstr = baseurl + "/reverse?format=\(format.rawValue)"
+        guard let url = URL(string: urlstr) else {
             throw APIError.apiError(reason: "bad URL")
         }
         
@@ -155,10 +152,8 @@ public actor NomiClient {
      */
     public func fetchDataAsync(address: String, options: NomiOptions) async throws -> Data {
         
-        let urlstr = urlString + "?format=\(format.rawValue)"
-        openCageURL = URL(string: urlstr)
-
-        guard let url = openCageURL else {
+        let urlstr = baseurl + "?format=\(format.rawValue)"
+        guard let url = URL(string: urlstr) else {
             throw APIError.apiError(reason: "bad URL")
         }
         
@@ -181,10 +176,8 @@ public actor NomiClient {
      */
     public func fetchDataAsync(search: NomiSearch, options: NomiOptions) async throws -> Data {
         
-        let urlstr = urlString + "?format=\(format.rawValue)"
-        openCageURL = URL(string: urlstr)
-
-        guard let url = openCageURL else {
+        let urlstr = baseurl + "?format=\(format.rawValue)"
+        guard let url = URL(string: urlstr) else {
             throw APIError.apiError(reason: "bad URL")
         }
         
@@ -207,10 +200,8 @@ public actor NomiClient {
      */
     public func fetchDataAsync(lookup: String, options: NomiOptions) async throws -> Data {
         
-        let urlstr = urlString + "/lookup?format=\(format.rawValue)"
-        openCageURL = URL(string: urlstr)
-
-        guard let url = openCageURL else {
+        let urlstr = baseurl + "/lookup?format=\(format.rawValue)"
+        guard let url = URL(string: urlstr) else {
             throw APIError.apiError(reason: "bad URL")
         }
         
