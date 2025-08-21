@@ -20,8 +20,8 @@ public class NomiBaseJson {
     public let client: NomiClient
     
     /// default endpoint
-    public init(urlString: String = "https://nominatim.openstreetmap.org/") {
-        self.client = NomiClient(urlString: urlString, format: .jsonv2)
+    public init(urlString: String = "https://nominatim.openstreetmap.org/", format: NomiFormats = .jsonv2) {
+        self.client = NomiClient(urlString: urlString, format: format)
     }
     
     /// get the reverse geocoding for the given location with the given options

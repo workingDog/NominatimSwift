@@ -38,7 +38,7 @@ public actor NomiClient {
     public var acceptType = "application/json; charset=utf-8"
     public var contentType = "application/json; charset=utf-8"
     
-    private var format: NomiFormats = NomiFormats.json
+    private var format: NomiFormats = NomiFormats.jsonv2
     private var baseurl: String = ""
 
     public init(urlString: String, format: NomiFormats) {

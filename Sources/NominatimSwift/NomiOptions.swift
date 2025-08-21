@@ -10,7 +10,7 @@ import Foundation
 /*
  * Response format types
  */
-public enum NomiFormats: String, Identifiable, CaseIterable {
+public enum NomiFormats: String, Identifiable, CaseIterable, Sendable {
     public var id: String {
         return self.rawValue
     }
