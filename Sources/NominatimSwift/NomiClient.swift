@@ -213,6 +213,17 @@ public actor NomiClient {
         return try await fetchDataAsyncQ(components: components, options: options)
     }
 
+    /*
+     * check the status of the Nominatim server
+     */
+    public func checkStatus() async throws -> Data {
+        let urlstr = baseurl + "status?format=json"
+        guard let url = URL(string: urlstr) else {
+            throw APIError.apiError(reason: "bad URL")
+        }
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+        return try await fetchDataAsyncQ(components: components, options: NomiOptions())
+    }
 }
 
 

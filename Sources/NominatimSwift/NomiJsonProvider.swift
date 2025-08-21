@@ -68,4 +68,15 @@ public struct NomiJsonProvider {
         }
     }
     
+    /// check the status of the Nominatim server
+    public func checkStatus() async -> StatusResponse? {
+        do {
+            let data = try await client.checkStatus()
+            let status: StatusResponse = try JSONDecoder().decode(StatusResponse.self, from: data)
+            return status
+        } catch {
+            print(error)
+            return nil
+        }
+    }
 }

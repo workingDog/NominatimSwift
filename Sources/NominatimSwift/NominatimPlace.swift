@@ -167,3 +167,17 @@ public struct Location: Codable, Sendable {
     }
 }
 
+// MARK: - StatusResponse
+public struct StatusResponse: Codable, Sendable {
+    public let status: Int
+    public let message: String
+    public let dataUpdated: String?
+    public let softwareVersion, databaseVersion: String?
+
+    enum CodingKeys: String, CodingKey {
+        case status, message
+        case dataUpdated = "data_updated"
+        case softwareVersion = "software_version"
+        case databaseVersion = "database_version"
+    }
+}
