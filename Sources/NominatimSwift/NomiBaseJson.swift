@@ -21,7 +21,7 @@ public class NomiBaseJson {
     
     /// default endpoint
     public init(urlString: String = "https://nominatim.openstreetmap.org/") {
-        self.client = NomiClient(urlString: urlString, format: .json)
+        self.client = NomiClient(urlString: urlString, format: .jsonv2)
     }
     
     /// get the reverse geocoding for the given location with the given options
