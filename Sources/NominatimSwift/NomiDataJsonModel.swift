@@ -14,13 +14,13 @@ import SwiftUI
 @MainActor
 public final class NomiDataJsonModel: NomiBaseJson {
 
-    public var response: NominatimPlace = NominatimPlace()
+    public var reverseResult: NominatimPlace = NominatimPlace()
     public var searchResults: [NominatimPlace] = []
     public var lookupResults: [NominatimPlace] = []
 
     /// get the reverse geocoding for the given location with the given options
     public func reverse(lat: Double, lon: Double, options: NomiOptions) async {
-        response = await baseReverse(lat: lat, lon: lon, options: options)
+        reverseResult = await baseReverse(lat: lat, lon: lon, options: options)
     }
 
     /// get the geocode for the given address with the given options
