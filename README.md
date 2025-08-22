@@ -64,8 +64,6 @@ import NominatimSwift
                                 }
                             }
                         }
-                        .mapStyle(.standard)
-                        .mapControlVisibility(.automatic)
                     }
                     .task {
                         dataModel.isLoading = true
