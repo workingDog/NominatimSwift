@@ -52,9 +52,9 @@ import NominatimSwift
                             ProgressView()
                         }
                         Map {
-                            ForEach(dataModel.searchResults) { result in
-                                if let coord = result.asCoordinate() {
-                                    Marker(result.displayName, systemImage: "globe", coordinate: coord)
+                            ForEach(dataModel.searchResults) { place in
+                                if let coord = place.asCoordinate() {
+                                    Marker(place.displayName, systemImage: "globe", coordinate: coord)
                                 }
                             }
                         }
