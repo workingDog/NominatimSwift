@@ -67,7 +67,7 @@ public actor NomiClient {
         request.httpMethod = "GET"
         request.addValue(acceptType, forHTTPHeaderField: "Accept")
         request.addValue(contentType, forHTTPHeaderField: "Content-Type")
-        request.addValue(options.acceptLanguage ?? "en", forHTTPHeaderField: "Accept-Language")
+        request.addValue(options.language ?? "en", forHTTPHeaderField: "Accept-Language")
 
      //   print("---> components.url: \(components.url!)")
         

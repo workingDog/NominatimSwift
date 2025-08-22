@@ -26,7 +26,7 @@ public enum NomiFormats: String, Identifiable, CaseIterable, Sendable {
 public struct NomiOptions: Codable, Sendable {
     
     public var limit: Int?
-    public var acceptLanguage: String?
+    public var language: String?
     public var addressdetails: Int?
     public var email: String?
     
@@ -45,13 +45,14 @@ public struct NomiOptions: Codable, Sendable {
     
     enum CodingKeys: String, CodingKey {
         case limit, addressdetails, email, debug
-        case acceptLanguage = "accept-language"
-        case extratags, namedetails, zoom, layer, polygon_geojson, polygon_kml, polygon_svg, polygon_text, polygon_threshold
+        case extratags, namedetails, zoom, layer, polygon_geojson
+        case polygon_kml, polygon_svg, polygon_text, polygon_threshold
+        case language = "accept-language"
     }
     
-public init(limit: Int? = nil, acceptLanguage: String? = nil, addressdetails: Int? = nil, email: String? = nil, debug: String? = nil, extratags: Int? = nil, namedetails: Int? = nil, zoom: Int? = nil, layer: [String]? = nil, polygon_geojson: Int? = nil, polygon_kml: Int? = nil, polygon_svg: Int? = nil, polygon_text: Int? = nil, polygon_threshold: Double? = nil) {
+public init(limit: Int? = nil, language: String? = nil, addressdetails: Int? = nil, email: String? = nil, debug: String? = nil, extratags: Int? = nil, namedetails: Int? = nil, zoom: Int? = nil, layer: [String]? = nil, polygon_geojson: Int? = nil, polygon_kml: Int? = nil, polygon_svg: Int? = nil, polygon_text: Int? = nil, polygon_threshold: Double? = nil) {
         self.limit = limit
-        self.acceptLanguage = acceptLanguage
+        self.language = language
         self.addressdetails = addressdetails
         self.email = email
         self.debug = debug
