@@ -53,7 +53,7 @@ import NominatimSwift
                         }
                         Map {
                             ForEach(dataModel.searchResults) { place in
-                                if let coord = place.asCoordinate() {
+                                if let coord = place.coordinate2D() {
                                     Marker(place.displayName, systemImage: "globe", coordinate: coord)
                                 }
                             }

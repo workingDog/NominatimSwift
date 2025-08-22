@@ -167,7 +167,7 @@ public struct NomiLocation: Codable, Sendable {
         self.lon = lon
     }
     
-    public func asCoordinate() -> CLLocationCoordinate2D {
+    public func coordinate2D() -> CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
 }
