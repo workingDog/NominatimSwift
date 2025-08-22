@@ -23,19 +23,12 @@ It can be used with the following OS:
 
 ```swift
 let dataProvider = NomiJsonProvider()
-@State private var response: NominatimPlace = NominatimPlace()
-...
 
-// using the async style, eg with `.task {...}`
-if let results = await dataProvider.reverse(lat: latitude, lon: longitude, options: NomiOptions()) {
-    ....
-}
-
-// or using the callback style, eg with `.onAppear {...}`
-dataProvider.reverse(lat: latitude, lon: longitude, options: NomiOptions()) { response in
-       if let theResponse = response {
-           ....
-       }
+// using the Swift async/await concurrency
+do {
+   let place: NominatimPlace = try await dataProvider.reverse(lat: 35.6768601, lon: 139.7638947, options: NomiOptions())
+    } catch {
+        print(error)
 }
 ```
 
