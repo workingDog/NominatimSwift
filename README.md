@@ -34,9 +34,9 @@ let dataProvider = NomiJsonProvider()
     
     
 // or using the callback style, eg in `.onAppear {...}`
-dataProvider.reverse(lat: 35.6768601, lon: 139.7638947, options: NomiOptions()) { result in
-       print(result)
-}
+    dataProvider.reverse(lat: 35.6768601, lon: 139.7638947, options: NomiOptions()) { result in
+           print(result)
+    }
 
 
 ```
