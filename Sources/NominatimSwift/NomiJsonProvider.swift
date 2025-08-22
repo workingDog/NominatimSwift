@@ -31,6 +31,15 @@ public struct NomiJsonProvider: Sendable {
         }
     }
     
+    /// get the reverse geocoding for the given location with the given options, with completion handler
+    @MainActor
+    public func reverse(lat: Double, lon: Double, options: NomiOptions, completion: @escaping (NominatimPlace) -> Void) {
+        Task {
+            let results: NominatimPlace = try await self.reverse(lat: lat, lon: lon, options: options)
+            completion(results)
+        }
+    }
+    
     /// get the geocode for the given address with the given options
     public func search(address: String, options: NomiOptions) async throws -> [NominatimPlace]  {
         do {
@@ -40,6 +49,15 @@ public struct NomiJsonProvider: Sendable {
         } catch {
             print(error)
             return []
+        }
+    }
+    
+    /// get the geocode for the given address with the given options, with completion handler
+    @MainActor
+    public func search(address: String, options: NomiOptions, completion: @escaping ([NominatimPlace]) -> Void) {
+        Task {
+            let results: [NominatimPlace] = try await self.search(address: address, options: options)
+            completion(results)
         }
     }
     
@@ -55,7 +73,16 @@ public struct NomiJsonProvider: Sendable {
         }
     }
     
-    /// get the geocode for the given osmids with the given options
+    /// get the geocode for the given NomiSearch with the given options, with completion handler
+    @MainActor
+    public func search(search: NomiSearch, options: NomiOptions, completion: @escaping ([NominatimPlace]) -> Void) {
+        Task {
+            let results: [NominatimPlace] = try await self.search(search: search, options: options)
+            completion(results)
+        }
+    }
+    
+    /// get the geocode for the given address with the given options
     public func lookup(osmids: String, options: NomiOptions) async throws -> [NominatimPlace] {
         do {
             let data = try await client.fetchDataAsync(lookup: osmids, options: options)
@@ -64,6 +91,15 @@ public struct NomiJsonProvider: Sendable {
         } catch {
             print(error)
             return []
+        }
+    }
+    
+    /// get the geocode for the given address with the given options, with completion handler
+    @MainActor
+    public func lookup(osmids: String, options: NomiOptions, completion: @escaping ([NominatimPlace]) -> Void) {
+        Task {
+            let results: [NominatimPlace] = try await self.lookup(osmids: osmids, options: options)
+            completion(results)
         }
     }
     
