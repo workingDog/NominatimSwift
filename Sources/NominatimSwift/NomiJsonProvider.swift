@@ -55,7 +55,7 @@ public struct NomiJsonProvider: Sendable {
         }
     }
     
-    /// get the geocode for the given address with the given options
+    /// get the geocode for the given osmids with the given options
     public func lookup(osmids: String, options: NomiOptions) async throws -> [NominatimPlace] {
         do {
             let data = try await client.fetchDataAsync(lookup: osmids, options: options)
