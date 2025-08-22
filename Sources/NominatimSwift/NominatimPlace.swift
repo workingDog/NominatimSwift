@@ -162,6 +162,11 @@ public struct NominatimAddress: Codable, Identifiable, Sendable {
 public struct NomiLocation: Codable, Sendable {
     public let lat, lon: Double
     
+    public init(lat: Double, lon: Double) {
+        self.lat = lat
+        self.lon = lon
+    }
+    
     public func asCoordinate() -> CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: lat, longitude: lon)
     }
