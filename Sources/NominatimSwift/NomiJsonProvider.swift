@@ -10,7 +10,7 @@ import Foundation
 /**
  * provide access to the Nominatim data JSON API using simple stand alone functions
  */
-public struct NomiJsonProvider {
+public struct NomiJsonProvider: Sendable {
 
     public let client: NomiClient
     
