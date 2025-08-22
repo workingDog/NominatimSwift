@@ -23,7 +23,7 @@ public final class NomiBatchJsonModel: NomiBaseJson {
     
     
     /// get the batch/concurrent reverse geocoding for the given locations with the given options
-    public func batchReverse(_ locations: [Location], options: NomiOptions) async  {
+    public func batchReverse(_ locations: [NomiLocation], options: NomiOptions) async  {
         return await withTaskGroup(of: NominatimPlace.self) { group -> Void in
             for location in locations {
                 group.addTask {

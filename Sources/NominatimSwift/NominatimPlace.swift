@@ -158,8 +158,8 @@ public struct NominatimAddress: Codable, Identifiable, Sendable {
     }
  }
 
-// MARK: - Location
-public struct Location: Codable, Sendable {
+// MARK: - NomiLocation
+public struct NomiLocation: Codable, Sendable {
     public let lat, lon: Double
     
     public func asCoordinate() -> CLLocationCoordinate2D {
