@@ -26,7 +26,7 @@ let dataProvider = NomiJsonProvider()
 
 // using the Swift async/await concurrency
     do {
-        let place = try await dataProvider.reverse(lat: 35.6768601, lon: 139.7638947, options: NomiOptions())
+        let place: NominatimPlace = try await dataProvider.reverse(lat: 35.6768601, lon: 139.7638947, options: NomiOptions())
         print(place)
     } catch {
         print(error)
