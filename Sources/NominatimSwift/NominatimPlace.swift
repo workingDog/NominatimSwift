@@ -91,7 +91,7 @@ public struct NominatimPlace: Codable, Identifiable, Sendable {
         self.namedetails = nil
     }
     
-    public func asCoordinate() -> CLLocationCoordinate2D? {
+    public func coordinate2D() -> CLLocationCoordinate2D? {
         if let latd = Double(lat), let lond = Double(lon) {
             return CLLocationCoordinate2D(latitude: latd, longitude: lond)
         }
