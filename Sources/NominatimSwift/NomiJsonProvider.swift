@@ -8,7 +8,7 @@ import Foundation
 
 
 /**
- * provide access to the Nominatim data JSON API using simple stand alone functions
+ * prov ide access to the Nominatim data JSON API using simple stand alone functions
  */
 @MainActor
 public struct NomiJsonProvider {
