@@ -1,6 +1,6 @@
 # Nominatim data API Swift client library
 
-[Nominatim](https://nominatim.org/release-docs/develop/) is a tool to search OSM data by name and address and to generate synthetic addresses of OSM points (reverse geocoding).
+[Nominatim](https://nominatim.org/release-docs/develop/) is a tool to search OpenStreetMap (OSM) data by name and address and to generate synthetic addresses of OSM points (reverse geocoding).
 
 **NominatimSwift** is a small Swift library to connect to the [Nominatim](https://nominatim.org/release-docs/develop/api/Overview/) server.
         
