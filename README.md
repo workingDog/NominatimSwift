@@ -2,6 +2,11 @@
 
 [Nominatim](https://nominatim.org/release-docs/develop/) is a tool to search OpenStreetMap (OSM) data by name and address and to generate synthetic addresses of OSM points (reverse geocoding).
 
+For example, the Nominatim **search** API allows you to look up a 
+location from a textual description or address. 
+Similarly, the Nominatim **reverse** geocoding generates an 
+address from a coordinate given as latitude and longitude.
+
 **NominatimSwift** is a small Swift library to connect to the [Nominatim](https://nominatim.org/release-docs/develop/api/Overview/) server.
         
 **NominatimSwift** caters for JSON responses.
@@ -24,7 +29,7 @@ It can be used with the following OS:
 ```swift
 let dataProvider = NomiJsonProvider()
 
-// using the Swift async/await concurrency, eg in `.task{...}`
+// using the Swift async/await concurrency, eg in .task{...}
     do {
         let place: NominatimPlace = try await dataProvider.reverse(lat: 35.6768601, lon: 139.7638947, options: NomiOptions())
         print(place)
@@ -33,7 +38,7 @@ let dataProvider = NomiJsonProvider()
     }
     
     
-// or using the callback style, eg in `.onAppear {...}`
+// or using the callback style, eg in .onAppear {...}
     dataProvider.reverse(lat: 35.6768601, lon: 139.7638947, options: NomiOptions()) { result in
            print(result)
     }
